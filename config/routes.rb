@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  # Root URL
+  root 'lists#index'
+
   # Routes for the Article resource:
   # CREATE
   get "/articles/new", :controller => "articles", :action => "new"
@@ -135,12 +140,12 @@ Rails.application.routes.draw do
   get "/delete_topic/:id", :controller => "topics", :action => "destroy"
   #------------------------------
 
-  devise_for :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'lists#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
