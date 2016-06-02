@@ -1,0 +1,41 @@
+<div class="page-header">
+  <h3>Article #<%= @article.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+
+      <dt>Category</dt>
+      <dd><%= @article.category_id %></dd>
+
+
+      <dt>Link</dt>
+      <dd><%= @article.link %></dd>
+
+
+      <dt>Abstract</dt>
+      <dd><%= @article.abstract %></dd>
+
+
+      <dt>Title</dt>
+      <dd><%= @article.title %></dd>
+
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+
+      <a href="/articles" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/articles/<%= @article.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_article/<%= @article.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+
+    </div>
+  </div>
+</div>

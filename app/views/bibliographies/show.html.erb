@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h3>Bibliography #<%= @bibliography.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+
+      <dt>Article</dt>
+      <dd><%= @bibliography.article_id %></dd>
+
+
+      <dt>Author</dt>
+      <dd><%= @bibliography.author_id %></dd>
+
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+
+      <a href="/bibliographies" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/bibliographies/<%= @bibliography.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_bibliography/<%= @bibliography.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+
+    </div>
+  </div>
+</div>
