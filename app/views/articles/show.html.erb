@@ -1,26 +1,16 @@
 <div class="page-header">
-  <h3>Article #<%= @article.id %></h3>
+  <h4><a href="<%= @article.link %>"><%= @article.title %></a></h4>
 </div>
 
 <div class="row">
   <div class="col-md-12">
     <dl class="dl-horizontal">
 
-      <dt>Category</dt>
-      <dd><%= @article.category_id %></dd>
+      <dt class="hidden">Category</dt>
+      <dd class="hidden"><%= @article.category_id %></dd>
 
-
-      <dt>Link</dt>
-      <dd><%= @article.link %></dd>
-
-
-      <dt>Abstract</dt>
+      <dt>Summary</dt>
       <dd><%= @article.abstract %></dd>
-
-
-      <dt>Title</dt>
-      <dd><%= @article.title %></dd>
-
 
     </dl>
 
