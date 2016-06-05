@@ -14,7 +14,9 @@
 
         <th>Name</th>
 
-        <th>Actions</th>
+        <th>Contents</th>
+
+        <th></th>
       </tr>
 
       <% @categories.each do |category| %>
@@ -22,12 +24,14 @@
 
         <td><%= category.name %></td>
 
+        <td><%= category.articles.count %> articles</td>
+
         <td>
+          <a href="/categories/<%= category.id %>" class="btn btn-primary"><i class="fa fa-search-plus" ></i></a>
 
-          <a href="/categories/<%= category.id %>" class="btn btn-primary">Show</a>
-          <a href="/categories/<%= category.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_category/<%= category.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <a href="/categories/<%= category.id %>/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
 
+          <a href="/delete_category/<%= category.id %>" class="btn btn-danger" rel="nofollow"><i class="fa fa-trash-o"></i></a>
         </td>
       </tr>
       <% end %>
