@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   # DELETE
   get "/delete_article/:id", :controller => "articles", :action => "destroy"
   #------------------------------
+  # Routes for the My List resource:
+  # READ
+  get "/my_list", :controller => "articles", :action => "my_list"
 
+  #------------------------------
   # Routes for the Like resource:
   # CREATE
   get "/likes/new", :controller => "likes", :action => "new"
