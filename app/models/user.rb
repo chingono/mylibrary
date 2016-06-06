@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
   has_many :lists , :class_name => "List", :foreign_key => "user_id"
   has_many :listed_articles, :through => :lists, :source => :article
   has_many :liked_articles, :through => :likes, :source => :article
+
+  validates :username, :presence => true, :uniqueness => true
+
 end

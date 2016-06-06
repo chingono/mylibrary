@@ -6,5 +6,8 @@ class Article < ActiveRecord::Base
   belongs_to :category , :class_name => "Category", :foreign_key => "category_id"
   has_many :topics, :through => :taggings
   has_many :authors, :through => :bibliographies
+
+  validates :user, :presence => true
+  validates :link, :presence => true
   
 end
