@@ -31,7 +31,6 @@ class ArticlesController < ApplicationController
     @article.title = params[:title]
 
 
-
     if @article.save
       redirect_to "/articles", :notice => "Article created successfully."
     else
