@@ -65,7 +65,25 @@
         <td><%= article.abstract.truncate(140) %></td>
 
         <td>
-          <a href="#" class="btn btn-info"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+          <% like = Like.find_by(:article_id => article.id, :user_id => current_user.id) %>
+          <% if like.present? %>
+            <a href="/delete_like/<%= like.id %>" class="btn btn-link">
+              <i class="fa fa-heart"></i>
+            </a>
+          <% else %>
+            <form action="/create_like" method="post">
+              <!-- Hidden input for authenticity token to protect from forgery -->
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+              <input type="hidden" name="article_id" value="<%= article.id %>">
+
+              <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+              <button class="btn btn-link">
+                <i class="fa fa-heart-o"></i>
+              </button>
+            </form>
+          <% end %>
         </td>
 
         <td>
