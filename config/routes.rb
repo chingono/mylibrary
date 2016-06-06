@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Root URL
-  root 'lists#index'
+  root 'articles#my_list'
 
   # Routes for the Article resource:
   # CREATE
@@ -23,6 +23,11 @@ Rails.application.routes.draw do
   # Routes for the My List resource:
   # READ
   get "/my_list", :controller => "articles", :action => "my_list"
+
+  #------------------------------
+  # Routes for the My Likes resource:
+  # READ
+  get "/my_likes", :controller => "articles", :action => "my_likes"
 
   #------------------------------
   # Routes for the Like resource:

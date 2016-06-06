@@ -1,11 +1,12 @@
 <div class="page-header text-center">
   <h3>
-    Articles
+    <%= current_user.username.capitalize %>'s favorite articles
   </h3>
 </div>
+
 <div class="page-header">
-    <a href="/articles/new" class="btn btn-success btn-block">
-          <i class="fa fa-plus"></i>
+    <a href="/articles" class="btn btn-success btn-block">
+          <i class="fa fa-file-text"></i>
         </a>
 </div>
 

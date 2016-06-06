@@ -7,6 +7,10 @@ class ArticlesController < ApplicationController
     @articles = current_user.listed_articles
   end
 
+  def my_likes
+    @articles = current_user.liked_articles
+  end
+
   def show
     @article = Article.find(params[:id])
   end
