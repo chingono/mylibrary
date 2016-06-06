@@ -1,38 +1,39 @@
-<div class="page-header">
-  <h1>
+<div class="page-header text-center">
+  <h3>
     Categories
 
-    <a href="/categories/new" class="btn btn-lg btn-success">New Category</a>
+<% if current_user.username == "admin" %>
+  <a href="/categories/new" class="btn btn-lg btn-success">New Category</a>
+<% end %>
 
-  </h1>
+  </h3>
 </div>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6 col-md-offset-3">
     <table class="table table-striped table-hover">
       <tr>
 
         <th>Name</th>
 
-        <th>Contents</th>
+        <th class="text-right">Contents</th>
 
-        <th></th>
       </tr>
 
       <% @categories.each do |category| %>
       <tr>
 
-        <td><%= category.name %></td>
-
-        <td><%= category.articles.count %> articles</td>
-
         <td>
-          <a href="/categories/<%= category.id %>" class="btn btn-primary"><i class="fa fa-search-plus" ></i></a>
+          <a href="/categories/<%= category.id %>" class="btn btn-primary"><%= category.name %></a>
+        </td>
 
+        <td class="text-right"><%= category.articles.count %> articles</td>
+
+        <!-- <td>
           <a href="/categories/<%= category.id %>/edit" class="btn btn-warning"><i class="fa fa-edit"></i></a>
 
           <a href="/delete_category/<%= category.id %>" class="btn btn-danger" rel="nofollow"><i class="fa fa-trash-o"></i></a>
-        </td>
+        </td> -->
       </tr>
       <% end %>
     </table>
