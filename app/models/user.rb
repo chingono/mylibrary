@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :likes , :class_name => "Like", :foreign_key => "user_id"
   has_many :lists , :class_name => "List", :foreign_key => "user_id"
-  has_many :articles, :through => :lists
-  has_many :articles, :through => :likes
+  has_many :listed_articles, :through => :lists, :source => :article
+  has_many :liked_articles, :through => :likes, :source => :article
 end
