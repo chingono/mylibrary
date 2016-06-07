@@ -1,4 +1,4 @@
-<div class="page-header">
+<div class="page-header text-center">
   <h4><a href="<%= @article.link %>"><%= @article.title %></a></h4>
 </div>
 
@@ -15,8 +15,8 @@
       <dt>Topics</dt>
       <dd>
           <% @article.topics.each do |topic| %>
-          <li>
-            <%= topic.name %>
+          <li class="list-unstyled">
+            <a href="/topics/<%= topic.id %>"><%= topic.name %></a>
           </li>
             <% end %>
       </dd>
@@ -26,12 +26,12 @@
     <div class="btn-group btn-group-justified">
 
       <a href="/articles" class="btn btn-primary">
-        Back
+        << Back
       </a>
-      <a href="/articles/<%= @article.id %>/edit" class="btn btn-warning">
+      <a href="/articles/<%= @article.id %>/edit" class="btn btn-warning"><i class="fa fa-edit"></i>
         Edit
       </a>
-      <a href="/delete_article/<%= @article.id %>" class="btn btn-danger" rel="nofollow">
+      <a href="/delete_article/<%= @article.id %>" class="btn btn-danger" rel="nofollow"><i class="fa fa-trash-o"></i>
         Delete
       </a>
 
