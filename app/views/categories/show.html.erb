@@ -16,8 +16,6 @@
 
         <th> Read Later </th>
 
-        <th>Category</th>
-
         <th>Title</th>
 
         <th>Summary</th>
@@ -56,10 +54,6 @@
                 </button>
               </form>
             <% end %>
-        </td>
-
-        <td><a href="/categories/<%= article.category_id %>">
-          <%= Category.find_by({ :id => article.category_id }).name %></a>
         </td>
 
         <td><a href="<%= article.link %>"><%= article.title.truncate(50) %></a></td>
