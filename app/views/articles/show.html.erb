@@ -13,7 +13,13 @@
       <dd><%= @article.abstract %></dd>
 
       <dt>Topics</dt>
-      <dd> <%= @article.topics.pluck(:name)to_s.gsub(/\"/, '\'').gsub(/[\[\]]/, '') %>  </dd>
+      <dd>
+          <% @article.topics.each do |topic| %>
+          <li>
+            <%= topic.name %>
+          </li>
+            <% end %>
+      </dd>
 
     </dl>
 
