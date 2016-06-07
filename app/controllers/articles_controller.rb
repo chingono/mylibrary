@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
     # Recommendations
     @target_articles = Article.where({ :category_id => @mode_category })
 
-    @recommendations = [@target_articles.sample, @target_articles.sample, @target_articles.sample]
+    @recommendations = @target_articles.sample(3)
 
     render("my_recs.html.erb")
 
