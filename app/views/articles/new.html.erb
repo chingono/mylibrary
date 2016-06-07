@@ -29,40 +29,8 @@
         </label>
 
         <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name, @article.category_id), :class => "form-control") %>
-        
-        <!-- <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @article.category_id %>"> -->
 
       </div>
-
-
-
-      <!-- Label and input for link -->
-
-      <div class="form-group">
-        <label for="link" class="control-label">
-          Link
-        </label>
-
-
-        <input type="text" id="link" name="link" placeholder="Link" class="form-control" value="<%= @article.link %>">
-
-      </div>
-
-
-
-      <!-- Label and input for abstract -->
-
-      <div class="form-group">
-        <label for="abstract" class="control-label">
-          Abstract
-        </label>
-
-
-        <textarea id="abstract" name="abstract" placeholder="Abstract" class="form-control" rows="3"><%= @article.abstract %></textarea>
-
-      </div>
-
-
 
       <!-- Label and input for title -->
 
@@ -72,10 +40,33 @@
         </label>
 
 
-        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @article.title %>">
+        <input type="text" id="title" name="title" placeholder="The Anatomy of a Large-Scale Hypertextual Web Search Engine" class="form-control" value="<%= @article.title %>">
 
       </div>
 
+      <!-- Label and input for abstract -->
+
+      <div class="form-group">
+        <label for="abstract" class="control-label">
+          Summary
+        </label>
+
+
+        <textarea id="abstract" name="abstract" placeholder="In this paper, Sergey Brin and Lawrence Page present Google, a prototype of a large-scale search engine which makes heavy use of the structure present in hypertext. Google is designed to crawl and index the Web efficiently and produce much more satisfying search results than existing systems." class="form-control" rows="3"><%= @article.abstract %></textarea>
+
+      </div>
+
+      <!-- Label and input for link -->
+
+      <div class="form-group">
+        <label for="link" class="control-label">
+          Link
+        </label>
+
+
+        <input type="text" id="link" name="link" placeholder="http://infolab.stanford.edu/~backrub/google.html" class="form-control" value="<%= @article.link %>">
+
+      </div>
 
 
       <button class="btn btn-success">

@@ -12,6 +12,9 @@
       <dt>Summary</dt>
       <dd><%= @article.abstract %></dd>
 
+      <dt>Topics</dt>
+      <dd> <%= @article.topics.pluck(:name)to_s.gsub(/\"/, '\'').gsub(/[\[\]]/, '') %>  </dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">

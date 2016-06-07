@@ -28,8 +28,9 @@
           Article
         </label>
 
+        <!-- <input type="text" id="article_id" name="article_id" placeholder="Article" class="form-control" value="<%= @tagging.article_id %>"> -->
 
-        <input type="text" id="article_id" name="article_id" placeholder="Article" class="form-control" value="<%= @tagging.article_id %>">
+        <%= select_tag(:article_id, options_from_collection_for_select(Article.all, :id, :title, @tagging.article_id), :class => "form-control") %>
 
       </div>
 
@@ -42,8 +43,9 @@
           Topic
         </label>
 
+        <!-- <input type="text" id="topic_id" name="topic_id" placeholder="Topic" class="form-control" value="<%= @tagging.topic_id %>"> -->
 
-        <input type="text" id="topic_id" name="topic_id" placeholder="Topic" class="form-control" value="<%= @tagging.topic_id %>">
+        <%= select_tag(:topic_id, options_from_collection_for_select(Topic.all, :id, :name, @tagging.topic_id), :class => "form-control") %>
 
       </div>
 
