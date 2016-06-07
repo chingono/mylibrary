@@ -11,6 +11,32 @@ class ArticlesController < ApplicationController
     @articles = current_user.liked_articles
   end
 
+  def my_recs
+    @liked_category_ids = current_user.liked_articles.pluck(:category_id)
+
+    # Mode====
+    leader = nil
+    leader_count = 0
+    @liked_category_ids.each do |category_id|
+      occurrences = @liked_category_ids.count(category_id)
+
+      if occurrences > leader_count
+        leader = category_id
+        leader_count = occurrences
+      end
+    end
+
+    @mode_category = leader
+
+    # Recommendations
+    @target_articles = Article.where({ :category_id => @mode_category })
+
+    @recommendations = [@target_articles.sample, @target_articles.sample, @target_articles.sample]
+
+    render("my_recs.html.erb")
+
+  end
+
   def show
     @article = Article.find(params[:id])
   end

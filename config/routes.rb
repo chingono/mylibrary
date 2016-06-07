@@ -2,8 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Root URL
-  root 'articles#my_list'
+  root 'articles#my_recs'
 
+  #------------------------------
+  # Routes for the Recommendation resource:
+  # READ
+  get "/home", :controller => "articles", :action => "my_recs"
+
+  #------------------------------
   # Routes for the Article resource:
   # CREATE
   get "/articles/new", :controller => "articles", :action => "new"
