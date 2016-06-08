@@ -5,10 +5,19 @@
 </div>
 
 <div class="page-header">
-    <a href="/articles" class="btn btn-success btn-block">
-          <i class="fa fa-file-text"></i>
+    <a href="/categories" class="btn btn-success btn-block">
+          <i class="fa fa-folder-open"></i>
         </a>
 </div>
+
+<% if current_user.lists.count == 0 %>
+<h5 class="text-center">Your reading list is currently empty</h5>
+
+<p class="text-center">Click on the button above to browse for some articles. You can add articles to your reading list by clicking on <i class="fa fa-star-o"></i></p>
+
+<p class="text-center">To remove an article from your reading list, simply re-click on <i class="fa fa-star"></i> </p>
+
+<% else %>
 
 <div class="row">
   <div class="col-md-12">
@@ -103,3 +112,4 @@
     </table>
   </div>
 </div>
+<% end %>

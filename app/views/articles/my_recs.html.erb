@@ -1,7 +1,20 @@
 <div class="page-header text-center">
+<% if current_user.username != nil %>
   <h3>
     Welcome, <%= current_user.username.capitalize %>
   </h3>
+<% end %>
+<% if current_user.likes.count == 0 %>
+
+<p>
+  Please tell us what you enjoy reading by liking <i class="fa fa-heart"></i> any articles you fancy on this site.
+</p>
+<p>
+  We'll then provide you customized article recommendations from the library!
+</p>
+
+<% else %>
+
   <p>
     Here are your recommended articles for today:
   </p>
@@ -100,3 +113,4 @@
     </table>
   </div>
 </div>
+<% end %>

@@ -5,10 +5,19 @@
 </div>
 
 <div class="page-header">
-    <a href="/articles" class="btn btn-success btn-block">
-          <i class="fa fa-file-text"></i>
+    <a href="/categories" class="btn btn-success btn-block">
+          <i class="fa fa-folder-open"></i>
         </a>
 </div>
+
+<% if current_user.likes.count == 0 %>
+<h5 class="text-center">Let us know what you like</h5>
+
+<p class="text-center">Click on the button above to browse for some articles. You can like articles by clicking on <i class="fa fa-heart-o"></i></p>
+
+<p class="text-center">To unlike an article, simply re-click on <i class="fa fa-heart"></i> </p>
+
+<% else %>
 
 <div class="row">
   <div class="col-md-12">
@@ -103,3 +112,4 @@
     </table>
   </div>
 </div>
+<% end %>
