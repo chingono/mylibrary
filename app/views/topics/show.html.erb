@@ -100,7 +100,7 @@
     </div>
 </div>
 
-    <div class="btn-group btn-group-justified">
+    <div style="margin-bottom: 30px" class="btn-group btn-group-justified">
 
       <a href="/topics" class="btn btn-primary">
         << Back
@@ -108,10 +108,11 @@
       <a href="/topics/<%= @topic.id %>/edit" class="btn btn-warning"><i class="fa fa-edit"></i>
         Edit
       </a>
+<% if current_user.username == "admin" %>
       <a href="/delete_topic/<%= @topic.id %>" class="btn btn-danger" rel="nofollow"><i class="fa fa-trash-o"></i>
         Delete
       </a>
-
+<% end %>
     </div>
   </div>
 </div>
