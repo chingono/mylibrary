@@ -8,7 +8,7 @@
   <% end %>
 <% end %>
 
-<div class="page-header">
+<div class="page-header text-center">
   <h3>Add Article</h3>
 </div>
 
@@ -25,7 +25,7 @@
 
       <div class="form-group">
         <label for="category_id" class="control-label">
-          Category
+          Select Category
         </label>
 
         <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name, @article.category_id), :class => "form-control") %>

@@ -72,7 +72,7 @@
           <%= Category.find_by({ :id => article.category_id }).name %></a>
         </td>
 
-        <td><a href="<%= article.link %>"><%= article.title.truncate(50) %></a></td>
+        <td><a href="<%= article.link %>" target="_blank"><%= article.title.truncate(50) %> <sup><i class="fa fa-external-link" aria-hidden="true"></i></sup></a></td>
 
         <td><%= article.abstract.truncate(140) %></td>
 

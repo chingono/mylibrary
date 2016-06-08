@@ -43,6 +43,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @article.category_id = params[:id]
   end
 
   def create
@@ -63,6 +64,7 @@ class ArticlesController < ApplicationController
     end
 
   end
+
 
   def edit
     @article = Article.find(params[:id])
