@@ -8,8 +8,8 @@
   <% end %>
 <% end %>
 
-<div class="page-header">
-  <h3>Edit Article #<%= @article.id %></h3>
+<div class="page-header text-center">
+  <h3><small>EDIT: <%= @article.title %></small></h3>
 </div>
 
 <div class="row">
@@ -20,7 +20,6 @@
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
 
-
       <!-- Label and input for category_id -->
 
       <div class="form-group">
@@ -28,40 +27,10 @@
           Category
         </label>
 
+        <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name, @article.category_id), :class => "form-control") %>
 
-        <input type="text" id="category_id" name="category_id" placeholder="Category" class="form-control" value="<%= @article.category_id %>">
 
       </div>
-
-
-
-      <!-- Label and input for link -->
-
-      <div class="form-group">
-        <label for="link" class="control-label">
-          Link
-        </label>
-
-
-        <input type="text" id="link" name="link" placeholder="Link" class="form-control" value="<%= @article.link %>">
-
-      </div>
-
-
-
-      <!-- Label and input for abstract -->
-
-      <div class="form-group">
-        <label for="abstract" class="control-label">
-          Abstract
-        </label>
-
-
-        <textarea id="abstract" name="abstract" placeholder="Abstract" class="form-control" rows="3"><%= @article.abstract %></textarea>
-
-      </div>
-
-
 
       <!-- Label and input for title -->
 
@@ -75,6 +44,30 @@
 
       </div>
 
+      <!-- Label and input for abstract -->
+
+      <div class="form-group">
+        <label for="abstract" class="control-label">
+          Summary
+        </label>
+
+
+        <textarea id="abstract" name="abstract" placeholder="Abstract" class="form-control" rows="3"><%= @article.abstract %></textarea>
+
+      </div>
+
+
+      <!-- Label and input for link -->
+
+      <div class="form-group">
+        <label for="link" class="control-label">
+          Link
+        </label>
+
+
+        <input type="text" id="link" name="link" placeholder="Link" class="form-control" value="<%= @article.link %>">
+
+      </div>
 
 
       <button class="btn btn-warning">
