@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
     @article.title = params[:title]
 
     if @article.save
-      redirect_to "/articles", :notice => "Article created successfully."
+      redirect_to "/taggings/new", :notice => "Final step: add at least one topic tag to your new article."
     else
       render 'new'
     end
@@ -66,6 +66,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+
   end
 
   def update
@@ -79,7 +80,6 @@ class ArticlesController < ApplicationController
     @article.abstract = params[:abstract]
 
     @article.title = params[:title]
-
 
 
     if @article.save

@@ -8,10 +8,14 @@ class TaggingsController < ApplicationController
   end
 
   def new
+    @article = Article.last
     @tagging = Tagging.new
   end
 
   def create
+
+    @article = Article.last
+
     @tagging = Tagging.new
 
     @tagging.article_id = params[:article_id]
@@ -19,9 +23,8 @@ class TaggingsController < ApplicationController
     @tagging.topic_id = params[:topic_id]
 
 
-
     if @tagging.save
-      redirect_to "/taggings", :notice => "Tagging created successfully."
+      redirect_to "/articles", :notice => "Article created successfully."
     else
       render 'new'
     end

@@ -9,7 +9,7 @@
 <% end %>
 
 <div class="page-header">
-  <h3>Add Tagging</h3>
+  <h5>Add a topic to <i>"<%= @article.title %>"</i></h5>
 </div>
 
 <div class="row">
@@ -24,13 +24,10 @@
       <!-- Label and input for article_id -->
 
       <div class="form-group">
-        <label for="article_id" class="control-label">
-          Article
-        </label>
 
-        <!-- <input type="text" id="article_id" name="article_id" placeholder="Article" class="form-control" value="<%= @tagging.article_id %>"> -->
+      <input type="hidden" id="article_id" name="article_id" placeholder="Article" class="form-control" value="<%= @article.id %>">
 
-        <%= select_tag(:article_id, options_from_collection_for_select(Article.all, :id, :title, @tagging.article_id), :class => "form-control") %>
+        <!-- <%= select_tag(:article_id, options_from_collection_for_select(Article.all, :id, :title, @article.id), :class => "form-control") %> -->
 
       </div>
 
@@ -40,7 +37,7 @@
 
       <div class="form-group">
         <label for="topic_id" class="control-label">
-          Topic
+          Select Topic
         </label>
 
         <!-- <input type="text" id="topic_id" name="topic_id" placeholder="Topic" class="form-control" value="<%= @tagging.topic_id %>"> -->
@@ -49,10 +46,8 @@
 
       </div>
 
-
-
       <button class="btn btn-success">
-        Create Tagging
+        Create Article
       </button>
       or
       <a href="/taggings">Cancel</a>
