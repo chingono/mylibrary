@@ -8,12 +8,24 @@
   <% end %>
 <% end %>
 
-<div class="page-header">
+<div class="page-header col-md-6 col-md-offset-3">
   <h5>Add a topic to <i>"<%= @article.title %>"</i></h5>
 </div>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6 col-md-offset-3">
+
+<% @article.taggings.each do |tagging| %>
+<div class="btn-group" role="group">
+<form action="/delete_tagging/<%= tagging.id %>" method="get">
+
+    <button class="btn btn-info">
+    <i class="fa fa-times" aria-hidden="true"></i> <%= Topic.find_by({ :id => tagging.topic_id }).name %>
+    </button>
+
+</form>
+</div>
+<% end %>
 
     <form action="/create_tagging" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
@@ -37,7 +49,7 @@
 
       <div class="form-group">
         <label for="topic_id" class="control-label">
-          Select Topic
+          Select New Topic
         </label>
 
         <!-- <input type="text" id="topic_id" name="topic_id" placeholder="Topic" class="form-control" value="<%= @tagging.topic_id %>"> -->
@@ -46,13 +58,16 @@
 
       </div>
 
-      <button class="btn btn-success">
-        Create Article
+
+
+      <button class="btn btn-primary">
+        <i class="fa fa-plus" aria-hidden="true"></i> Add Topic
       </button>
-      or
-      <a href="/taggings">Cancel</a>
+
+
 
     </form>
-
+    or
+    <a href="/taggings">Cancel</a>
   </div>
 </div>

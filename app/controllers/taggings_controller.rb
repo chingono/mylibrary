@@ -24,7 +24,7 @@ class TaggingsController < ApplicationController
 
 
     if @tagging.save
-      redirect_to "/articles", :notice => "Article created successfully."
+      redirect_to request.referrer
     else
       render 'new'
     end
@@ -59,7 +59,7 @@ class TaggingsController < ApplicationController
     @tagging.destroy
 
 
-    redirect_to "/taggings", :notice => "Tagging deleted."
+    redirect_to request.referrer
 
   end
 end
