@@ -1,11 +1,11 @@
 <!-- Validation failure messages -->
 <% if @tagging.errors.any? %>
-  <% @tagging.errors.full_messages.each do |message| %>
-    <div class="alert alert-dismissable alert-danger">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <%= message %>
-    </div>
-  <% end %>
+<% @tagging.errors.full_messages.each do |message| %>
+<div class="alert alert-dismissable alert-danger">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <%= message %>
+</div>
+<% end %>
 <% end %>
 
 <div class="page-header col-md-6 col-md-offset-3">
@@ -15,17 +15,17 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
 
-<% @article.taggings.each do |tagging| %>
-<div class="btn-group" role="group">
-<form action="/delete_tagging/<%= tagging.id %>" method="get">
+    <% @article.taggings.each do |tagging| %>
+    <div class="btn-group" role="group">
+      <form action="/delete_tagging/<%= tagging.id %>" method="get">
 
-    <button class="btn btn-info">
-    <i class="fa fa-times" aria-hidden="true"></i> <%= Topic.find_by({ :id => tagging.topic_id }).name %>
-    </button>
+        <button class="btn btn-info">
+          <i class="fa fa-times" aria-hidden="true"></i> <%= Topic.find_by({ :id => tagging.topic_id }).name %>
+        </button>
 
-</form>
-</div>
-<% end %>
+      </form>
+    </div>
+    <% end %>
 
     <form action="/create_tagging" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
@@ -37,7 +37,7 @@
 
       <div class="form-group">
 
-      <input type="hidden" id="article_id" name="article_id" placeholder="Article" class="form-control" value="<%= @article.id %>">
+        <input type="hidden" id="article_id" name="article_id" placeholder="Article" class="form-control" value="<%= @article.id %>">
 
         <!-- <%= select_tag(:article_id, options_from_collection_for_select(Article.all, :id, :title, @article.id), :class => "form-control") %> -->
 
@@ -67,7 +67,27 @@
 
 
     </form>
-    or
-    <a href="/taggings">Cancel</a>
+    or create new topic
+
+    <div class="media-body">
+      <form action="/create_topic" method="post">
+        <!-- Hidden input for authenticity token to protect from forgery -->
+        <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+        <!-- Label and input for body -->
+        <div class="form-group">
+          <label for="name" class="sr-only">
+            Name
+          </label>
+
+          <input type="text" id="name" name="name" placeholder="Add a topic name and hit [ENTER]..." class="form-control" required>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div style="margin-top: 30px" class="col-md-6 col-md-offset-3">
+      <a href="/articles" class="btn btn-success btn-block">
+            <i class="fa fa-file-text"></i> Create Article
+          </a>
   </div>
 </div>

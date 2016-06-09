@@ -19,7 +19,7 @@ class TopicsController < ApplicationController
 
 
     if @topic.save
-      redirect_to "/topics", :notice => "Topic created successfully."
+      redirect_to request.referrer, :notice => "Topic created successfully."
     else
       render 'new'
     end
