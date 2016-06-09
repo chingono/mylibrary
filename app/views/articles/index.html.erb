@@ -33,7 +33,7 @@
 
       </tr>
 
-      <% @articles.each do |article| %>
+      <% @articles.order('created_at DESC').each do |article| %>
       <tr>
 
         <td>

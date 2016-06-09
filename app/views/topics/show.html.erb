@@ -28,7 +28,7 @@
 
         </tr>
 
-        <% @topic.tagged_articles.each do |article| %>
+        <% @topic.tagged_articles.order('category_id ASC, title').each do |article| %>
         <tr>
 
           <td>

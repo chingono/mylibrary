@@ -21,7 +21,7 @@
 
       </tr>
 
-      <% @topics.each do |topic| %>
+      <% @topics.order('name ASC').each do |topic| %>
       <tr>
 
         <td>

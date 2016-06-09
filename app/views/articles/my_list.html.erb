@@ -43,7 +43,7 @@
 
       </tr>
 
-      <% @articles.each do |article| %>
+      <% @articles.order('category_id ASC, title').each do |article| %>
       <tr>
 
         <td>
