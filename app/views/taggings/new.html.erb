@@ -8,13 +8,14 @@
 <% end %>
 <% end %>
 
-<div class="page-header col-md-6 col-md-offset-3">
-  <h5>Add a topic to <i>"<%= @article.title %>"</i></h5>
+<div class="page-header col-md-8 col-md-offset-2">
+  <h5>Add topics to <i>"<%= @article.title %>"</i></h5>
 </div>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-8 col-md-offset-2">
 
+<strong>Topics:  </strong>
     <% @article.taggings.each do |tagging| %>
     <div class="btn-group" role="group">
       <form action="/delete_tagging/<%= tagging.id %>" method="get">
@@ -39,7 +40,6 @@
 
         <input type="hidden" id="article_id" name="article_id" placeholder="Article" class="form-control" value="<%= @article.id %>">
 
-        <!-- <%= select_tag(:article_id, options_from_collection_for_select(Article.all, :id, :title, @article.id), :class => "form-control") %> -->
 
       </div>
 
@@ -49,10 +49,9 @@
 
       <div class="form-group">
         <label for="topic_id" class="control-label">
-          Select New Topic
+          <strong>Select New Topic</strong>
         </label>
 
-        <!-- <input type="text" id="topic_id" name="topic_id" placeholder="Topic" class="form-control" value="<%= @tagging.topic_id %>"> -->
 
         <%= select_tag(:topic_id, options_from_collection_for_select(Topic.all, :id, :name, @tagging.topic_id), :class => "form-control") %>
 
@@ -84,8 +83,10 @@
         </div>
       </form>
     </div>
+
   </div>
-  <div style="margin-top: 30px" class="col-md-6 col-md-offset-3">
+
+  <div style="margin-top: 30px" class="col-md-8 col-md-offset-2">
       <a href="/articles" class="btn btn-success btn-block">
             <i class="fa fa-file-text"></i> Create Article
           </a>

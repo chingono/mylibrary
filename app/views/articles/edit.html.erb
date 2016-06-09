@@ -9,11 +9,83 @@
 <% end %>
 
 <div class="page-header text-center">
-  <h3><small>EDIT: <%= @article.title %></small></h3>
+  <h3><small><strong>EDIT: <%= @article.title %></strong></small></h3>
 </div>
 
 <div class="row">
   <div class="col-md-12">
+<strong>Topics:  </strong>
+    <% @article.taggings.each do |tagging| %>
+    <div class="btn-group" role="group">
+      <form action="/delete_tagging/<%= tagging.id %>" method="get">
+
+        <button class="btn btn-info">
+          <i class="fa fa-times" aria-hidden="true"></i> <%= Topic.find_by({ :id => tagging.topic_id }).name %>
+        </button>
+
+      </form>
+    </div>
+    <% end %>
+
+
+        <form action="/create_tagging" method="post">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+
+
+          <!-- Label and input for article_id -->
+
+          <div class="form-group">
+
+            <input type="hidden" id="article_id" name="article_id" placeholder="Article" class="form-control" value="<%= @article.id %>">
+
+            <!-- <%= select_tag(:article_id, options_from_collection_for_select(Article.all, :id, :title, @article.id), :class => "form-control") %> -->
+
+          </div>
+
+
+
+          <!-- Label and input for topic_id -->
+
+          <div class="form-group">
+            <label for="topic_id" class="control-label">
+              <strong>Select New Topic to Add</strong>
+            </label>
+
+
+            <%= select_tag(:topic_id, options_from_collection_for_select(Topic.all, :id, :name, @tagging.topic_id), :class => "form-control") %>
+
+          </div>
+
+
+
+          <button class="btn btn-primary">
+            <i class="fa fa-plus" aria-hidden="true"></i> Add Topic
+          </button>
+
+
+
+        </form>
+        or create new topic
+
+        <div class="media-body">
+          <form action="/create_topic" method="post">
+            <!-- Hidden input for authenticity token to protect from forgery -->
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+            <!-- Label and input for body -->
+            <div class="form-group">
+              <label for="name" class="sr-only">
+                Name
+              </label>
+
+              <input type="text" id="name" name="name" placeholder="Add a topic name and hit [ENTER]..." class="form-control" required>
+            </div>
+          </form>
+        </div>
+
+
 
     <form action="/update_article/<%= @article.id %>" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
@@ -24,7 +96,7 @@
 
       <div class="form-group">
         <label for="category_id" class="control-label">
-          Category
+          <strong>Category</strong>
         </label>
 
         <%= select_tag(:category_id, options_from_collection_for_select(Category.all, :id, :name, @article.category_id), :class => "form-control") %>
@@ -36,7 +108,7 @@
 
       <div class="form-group">
         <label for="title" class="control-label">
-          Title
+          <strong>Title</strong>
         </label>
 
 
@@ -48,7 +120,7 @@
 
       <div class="form-group">
         <label for="abstract" class="control-label">
-          Summary
+          <strong>Summary</strong>
         </label>
 
 
@@ -61,7 +133,7 @@
 
       <div class="form-group">
         <label for="link" class="control-label">
-          Link
+          <strong>Link</strong>
         </label>
 
 

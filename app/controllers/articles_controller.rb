@@ -68,6 +68,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+    @tagging = Tagging.new
 
   end
 
