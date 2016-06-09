@@ -31,6 +31,8 @@
         <th></th>
 
 
+
+
       </tr>
 
       <% @articles.order('created_at DESC').each do |article| %>
@@ -62,7 +64,13 @@
           <%= Category.find_by({ :id => article.category_id }).name %></a>
         </td>
 
-        <td><a href="<%= article.link %>" target="_blank"><%= article.title.truncate(50) %> <sup><i class="fa fa-external-link" aria-hidden="true"></i></sup></a></td>
+        <td><a href="<%= article.link %>" target="_blank"><%= article.title.truncate(50) %> <sup><i class="fa fa-external-link" aria-hidden="true"></i></sup></a>
+          <p>
+          <small>
+            <%= time_ago_in_words(article.created_at) %> ago
+          </small>
+        </p>
+        </td>
 
         <td><%= article.abstract.truncate(140) %></td>
 
@@ -97,6 +105,7 @@
         <td>
           <a href="/delete_article/<%= article.id %>" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
         </td>
+
       </tr>
       <% end %>
     </table>
