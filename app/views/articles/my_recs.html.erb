@@ -1,23 +1,26 @@
 <div class="page-header text-center">
+<div class="hero-unit" style="background-image: url(../images/art_library.jpg); height: 200px; background-size: 100%; margin-top: 20px">
+
 <% if current_user.username != nil %>
-  <h3>
+  <h3 style="color:white; padding-top: 40px">
     Welcome, <%= current_user.username.capitalize %>
   </h3>
 <% end %>
-<% if current_user.likes.count == 0 %>
 
-<p>
+<% if current_user.likes.count == 0 %>
+<p style="color:white">
   Please tell us what you enjoy reading by liking <i class="fa fa-heart"></i> any articles you fancy on this site.
 </p>
-<p>
+<p style="color:white">
   We'll then provide you customized article recommendations from the library!
 </p>
 
 <% else %>
 
-  <p>
+  <p style="color:white; padding-top: 20px">
     Here are your recommended articles for today:
   </p>
+</div>
 </div>
 
 <div class="row">
