@@ -7,6 +7,7 @@ class Article < ActiveRecord::Base
   has_many :topics, :through => :taggings
   has_many :authors, :through => :bibliographies
 
-  validates :link, :presence => true
+  validates :link, :presence => true, :uniqueness => true
+  validates :title, :presence => true, :uniqueness => true
 
 end
