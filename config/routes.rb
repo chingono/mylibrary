@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-
+  
   # Root URL
   root 'articles#my_recs'
 
@@ -85,41 +85,7 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_list/:id", :controller => "lists", :action => "destroy"
-  #------------------------------
 
-  # Routes for the Bibliography resource:
-  # CREATE
-  get "/bibliographies/new", :controller => "bibliographies", :action => "new"
-  post "/create_bibliography", :controller => "bibliographies", :action => "create"
-
-  # READ
-  get "/bibliographies", :controller => "bibliographies", :action => "index"
-  get "/bibliographies/:id", :controller => "bibliographies", :action => "show"
-
-  # UPDATE
-  get "/bibliographies/:id/edit", :controller => "bibliographies", :action => "edit"
-  post "/update_bibliography/:id", :controller => "bibliographies", :action => "update"
-
-  # DELETE
-  get "/delete_bibliography/:id", :controller => "bibliographies", :action => "destroy"
-  #------------------------------
-
-  # Routes for the Author resource:
-  # CREATE
-  get "/authors/new", :controller => "authors", :action => "new"
-  post "/create_author", :controller => "authors", :action => "create"
-
-  # READ
-  get "/authors", :controller => "authors", :action => "index"
-  get "/authors/:id", :controller => "authors", :action => "show"
-
-  # UPDATE
-  get "/authors/:id/edit", :controller => "authors", :action => "edit"
-  post "/update_author/:id", :controller => "authors", :action => "update"
-
-  # DELETE
-  get "/delete_author/:id", :controller => "authors", :action => "destroy"
-  #------------------------------
 
   # Routes for the Tagging resource:
   # CREATE
@@ -153,8 +119,41 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_topic/:id", :controller => "topics", :action => "destroy"
-  #------------------------------
 
+  #------------------------------
+  # Routes for the Bibliography resource:
+  # CREATE
+  # get "/bibliographies/new", :controller => "bibliographies", :action => "new"
+  # post "/create_bibliography", :controller => "bibliographies", :action => "create"
+  #
+  # # READ
+  # get "/bibliographies", :controller => "bibliographies", :action => "index"
+  # get "/bibliographies/:id", :controller => "bibliographies", :action => "show"
+  #
+  # # UPDATE
+  # get "/bibliographies/:id/edit", :controller => "bibliographies", :action => "edit"
+  # post "/update_bibliography/:id", :controller => "bibliographies", :action => "update"
+  #
+  # # DELETE
+  # get "/delete_bibliography/:id", :controller => "bibliographies", :action => "destroy"
+  # #------------------------------
+  #
+  # # Routes for the Author resource:
+  # # CREATE
+  # get "/authors/new", :controller => "authors", :action => "new"
+  # post "/create_author", :controller => "authors", :action => "create"
+  #
+  # # READ
+  # get "/authors", :controller => "authors", :action => "index"
+  # get "/authors/:id", :controller => "authors", :action => "show"
+  #
+  # # UPDATE
+  # get "/authors/:id/edit", :controller => "authors", :action => "edit"
+  # post "/update_author/:id", :controller => "authors", :action => "update"
+  #
+  # # DELETE
+  # get "/delete_author/:id", :controller => "authors", :action => "destroy"
+  #------------------------------
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
