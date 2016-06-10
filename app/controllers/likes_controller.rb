@@ -21,7 +21,7 @@ class LikesController < ApplicationController
 
 
     if @like.save
-      redirect_to :back, :notice => "Like created successfully."
+      redirect_to :back
     else
       render 'new'
     end
@@ -56,7 +56,7 @@ class LikesController < ApplicationController
     @like.destroy
 
 
-    redirect_to :back, :notice => "Like deleted."
+    redirect_to :back
 
   end
 end

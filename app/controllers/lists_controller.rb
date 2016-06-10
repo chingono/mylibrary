@@ -21,7 +21,7 @@ class ListsController < ApplicationController
 
 
     if @list.save
-      redirect_to :back, :notice => "Added to your reading list."
+      redirect_to :back
     else
       render 'new'
     end
@@ -56,7 +56,7 @@ class ListsController < ApplicationController
     @list.destroy
 
 
-    redirect_to :back, :notice => "Removed from your reading list."
+    redirect_to :back
 
   end
 end
