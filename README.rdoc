@@ -1,28 +1,12 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby on Rails app that provides a central resource for storing your favorite articles. Users have access to all articles within the application. The app provides customized article recommendations to each user upon sign-in, based on articles that the user has liked in the past. Users can also do the folowing:
 
-Things you may want to cover:
+* Build a reading list of articles they plan to read in the future
 
-* Ruby version
+* View and edit their history of liked articles
 
-* System dependencies
+* Browse articles by category and topic
 
-* Configuration
+* Add, edit, and delete articles from the library.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
