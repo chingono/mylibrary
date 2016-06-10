@@ -19,6 +19,17 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for title -->
+
+      <div class="form-group">
+        <label for="title" class="control-label">
+          <strong>Title</strong>
+        </label>
+
+
+        <input type="text" id="title" name="title" placeholder="The Anatomy of a Large-Scale Hypertextual Web Search Engine" class="form-control" value="<%= @article.title %>">
+
+      </div>
 
 
       <!-- Label and input for category_id -->
@@ -32,18 +43,6 @@
 
       </div>
 
-
-      <!-- Label and input for title -->
-
-      <div class="form-group">
-        <label for="title" class="control-label">
-          <strong>Title</strong>
-        </label>
-
-
-        <input type="text" id="title" name="title" placeholder="The Anatomy of a Large-Scale Hypertextual Web Search Engine" class="form-control" value="<%= @article.title %>">
-
-      </div>
 
       <!-- Label and input for abstract -->
 
